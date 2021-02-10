@@ -17,4 +17,11 @@ class KhachHang extends Model
 
     protected $dates        = ['kh_ngaySinh', 'kh_taoMoi', 'kh_capNhat'];
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function khDonhang () {
+        return $this->hasMany('App\DonHang', 'kh_id', 'kh_id');
+    }
+    public function khGopy () {
+        return $this->hasMany('App\GopY', 'kh_id', 'kh_id');
+    }
 }

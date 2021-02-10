@@ -17,4 +17,8 @@ class ThanhToan extends Model
 
     protected $dates        = ['tt_taoMoi', 'tt_capNhat'];
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function ttDonhang () {
+        return $this->hasMany('App\DonHang', 'tt_id', 'tt_id');
+    }
 }

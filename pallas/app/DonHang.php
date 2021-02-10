@@ -17,4 +17,17 @@ class DonHang extends Model
 
     protected $dates        = ['dh_thoiGianDatHang', 'dh_thoiGianNhanHang', 'dh_ngayXuLy', 'dh_ngayLapPhieuGiao', 'dh_ngayGiaoHang', 'dh_taoMoi', 'dh_capNhat'];
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function dhVanchuyen () {
+        return $this->belongsTo('App\VanChuyen', 'vc_id', 'vc_id');
+    }
+    public function dhThanhtoan () {
+        return $this->belongsTo('App\ThanhToan', 'tt_id', 'tt_id');
+    }
+    public function dhNhanvien () {
+        return $this->belongsTo('App\NhanVien', 'nv_id', 'nv_id');
+    }
+    public function dhKhachhang () {
+        return $this->belongsTo('App\KhachHang', 'kh_id', 'kh_id');
+    }
 }

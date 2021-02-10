@@ -17,4 +17,8 @@ class NhaCungCap extends Model
 
     protected $dates        = ['ncc_taoMoi', 'ncc_capNhat'];
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function nccSanpham () {
+        return $this->hasMany('App\SanPham', 'ncc_id', 'ncc_id');
+    }
 }

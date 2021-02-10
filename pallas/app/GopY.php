@@ -16,4 +16,11 @@ class GopY extends Model
 
     protected $dates        = ['gy_thoiGian'];
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function gySanpham () {
+        return $this->belongsTo('App\SanPham', 'sp_id', 'sp_id');
+    }
+    public function gyKhachhang () {
+        return $this->belongsTo('App\KhachHang', 'kh_id', 'kh_id');
+    }
 }

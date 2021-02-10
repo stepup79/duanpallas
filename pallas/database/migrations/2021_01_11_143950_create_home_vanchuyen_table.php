@@ -16,7 +16,7 @@ class CreateHomeVanchuyenTable extends Migration
         Schema::create('home_vanchuyen', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->tinyIncrements('vc_id')->comment('ID dịch vụ giao hàng');
-            $table->string('vc_ten', 100)->comment('Tên dịch vụ # Tên dịch vụ giao hàng');
+            $table->string('vc_ten', 50)->comment('Tên dịch vụ # Tên dịch vụ giao hàng');
             $table->unsignedInteger('vc_chiPhi')->default('0')->comment('Phí giao hàng # Phí giao hàng');
             $table->text('vc_dienGiai')->comment('Thông tin # Thông tin về dịch vụ giao hàng');
             $table->timestamp('vc_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('Thời điểm tạo # Thời điểm đầu tiên tạo dịch vụ giao hàng');

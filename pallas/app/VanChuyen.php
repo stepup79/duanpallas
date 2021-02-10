@@ -17,4 +17,8 @@ class VanChuyen extends Model
 
     protected $dates        = ['vc_taoMoi', 'vc_capNhat'];
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function vcDonhang () {
+        return $this->hasMany('App\DonHang', 'vc_id', 'vc_id');
+    }
 }
