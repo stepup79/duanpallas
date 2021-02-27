@@ -1,5 +1,5 @@
 # duanpallas
-Đồ án website thương mại điện tử shop Hoa tươi
+Đồ án website thương mại điện tử shop Hoa tươi Pallas
 
 # Thông tin về Tác giả
 Mã sinh viên: D20199
@@ -43,9 +43,3 @@ php artisan db:seed
 Tài khoản Admin:
 admin / 123456
 
-Tài khoản Quản lý kho:
-kho / 123456
-
-Tài khoản Khách hàng:
-khachhang / 123456
-...
