@@ -13,13 +13,9 @@ class ChudeTableSeeder extends Seeder
     {
         $list = [];
 
-        $categories = ["Hoa cưới", "Hoa 20/10", "Hoa 14/2", "Hoa 8/3", "Hoa Tết", "Hoa 20/11", "Hoa mừng sinh nhật cha", 
-                       "Hoa mừng sinh nhật mẹ", "Hoa mừng sinh nhật", "Hoa mừng sinh nhật người yêu", 
-                       "Hoa mừng tốt nghiệp", "Hoa tình nhân", "Hoa chúc sức khỏe", "Hoa mừng giáng sinh", 
-                       "Hoa chia buồn", "Hoa mừng tân gia", "Hoa mừng khai trương", "Hoa mừng thọ"];
-        sort($categories);
+        $categories = ["Hoa khai trương", "Hoa ăn được", "Hoa tươi", "Hoa sự kiện", "Hoa thú cưng", "Các loại hoa", "Lan hồ điệp", "Gòn"];
 
-        $today = new DateTime('2021-01-01 08:00:00');
+        $today = new DateTime('Asia/Ho_Chi_Minh');
 
         for ($i=1; $i <= count($categories); $i++) {
             array_push($list, [

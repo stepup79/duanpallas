@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Chức năng CRUD
+Danh mục Sản phẩm
 @endsection
 
 @section('custom-css')
@@ -9,6 +9,15 @@ Chức năng CRUD
 <link href="{{ asset('vendor/bootstrap-fileinput/css/fileinput.css') }}" media="all" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
 <link href="{{ asset('vendor/bootstrap-fileinput/themes/explorer-fas/theme.css') }}" media="all" rel="stylesheet" type="text/css"/>
+<style>
+    .preview-upload {
+        border: 1px dashed red;
+        padding: 10px;
+    }
+    .preview-upload img {
+        width: 100%;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -69,12 +78,18 @@ Chức năng CRUD
             <label for="sp_hinh">Hình đại diện</label>
             <div class="file-loading">                
                 <input type="file" name="sp_hinh" id="sp_hinh">
+                <div class="preview-upload">
+                    <img id='sp_hinh-upload'/>
+                </div>
             </div>
         </div>
         <div class="form-group col-md-6">
             <label for="sp_hinhanhlienquan">Hình ảnh liên quan sản phẩm</label>
             <div class="file-loading">                
                 <input id="sp_hinhanhlienquan" type="file" name="sp_hinhanhlienquan[]" multiple>
+                <div class="preview-upload">
+                    <img id='sp_hinh-upload'/>
+                </div>
             </div>
         </div>
     </div>
@@ -114,6 +129,22 @@ $(function() {
         allowedFileExtensions: ["jpg", "gif", "png", "txt"]
     });
 });
+
+    // Sử dụng FileReader để đọc dữ liệu tạm trước khi upload lên Server
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#sp_hinh-upload').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    // Bắt sự kiện, ngay khi thay đổi file thì đọc lại nội dung và hiển thị lại hình ảnh mới trên khung preview-upload
+    $("#sp_hinh").change(function(){
+        readURL(this);
+    }); 
 </script>
 
 <!-- SCRIPTS dành cho thư viện input-mask -->

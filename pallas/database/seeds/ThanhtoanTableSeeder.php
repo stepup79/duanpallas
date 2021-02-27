@@ -14,12 +14,12 @@ class ThanhtoanTableSeeder extends Seeder
      */
     public function run()
     {
-        $today = new DateTime('2021-01-01 08:00:00');
+        $today = new DateTime('Asia/Ho_Chi_Minh');
 
         $list = [
             [
                 'tt_ten'      => "Tiền mặt",
-                'tt_dienGiai' => "Quý khách thanh toán trực tiếp tại cửa hàng",
+                'tt_dienGiai' => "Quý khách thanh toán trực tiếp tại cửa hàng.",
                 'tt_taoMoi'   => $today->format('Y-m-d H:i:s'),
                 'tt_capNhat'  => $today->format('Y-m-d H:i:s')
             ], 
@@ -30,14 +30,17 @@ class ThanhtoanTableSeeder extends Seeder
                 'tt_capNhat'  => $today->format('Y-m-d H:i:s')
             ], 
             [
-                'tt_ten'      => "Chuyển khoản",
-                'tt_dienGiai' => "<div style='text-align: justify'>Quý khách có thể đến bất kì Phòng giao dịch ngân hàng, ATM hoặc sử dụng tính năng Internet Banking để chuyển tiền vào một trong các tài khoản sau:</div>".
-                    "<div style='text-align: center'><img src='public/template/images/info/atm.png'/></div>".
-                    "<div style='text-align: justify; text-style: italic; margin-left: 20px'><b>Lưu ý:</b> Sau khi thanh toán, Quý khách cần thông báo lại cho chúng tôi thông tin chuyển khoản của Quý khách bao gồm: Tên người chuyển và số điện thoại hoặc nội dung chuyển khoản để chúng tôi kiểm tra thông tin.</div>".
-                    "<div style='text-align: center'>HOTLINE HỖ TRỢ THANH TOÁN: 0939.123.456</div>",
+                'tt_ten'      => "Chuyển khoản ngân hàng",
+                'tt_dienGiai' => "Quý khách có thể đến bất kì Phòng giao dịch ngân hàng, ATM hoặc sử dụng tính năng Internet Banking để chuyển tiền. Lưu ý: Sau khi thanh toán, Quý khách cần thông báo lại cho chúng tôi thông tin chuyển khoản của Quý khách bao gồm: Tên người chuyển và số điện thoại hoặc nội dung chuyển khoản để chúng tôi kiểm tra thông tin.",
                 'tt_taoMoi'   => $today->format('Y-m-d H:i:s'),
                 'tt_capNhat'  => $today->format('Y-m-d H:i:s')
-            ]
+            ],
+            [
+                'tt_ten'      => "Ví điện tử VinID, Moca, VNPay",
+                'tt_dienGiai' => "Thanh toán tại cửa hàng bằng ví điện tử.",
+                'tt_taoMoi'   => $today->format('Y-m-d H:i:s'),
+                'tt_capNhat'  => $today->format('Y-m-d H:i:s')
+            ],
         ];
         DB::table('home_thanhtoan')->insert($list);
     }

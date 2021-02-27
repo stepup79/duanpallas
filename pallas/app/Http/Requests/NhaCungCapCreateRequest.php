@@ -47,7 +47,7 @@ class NhaCungCapCreateRequest extends FormRequest
             'ncc_diaChi.max' => 'Địa chỉ tối đa chỉ 150 ký tự',
             'ncc_dienThoai.required' => 'Điện thoại bắt buộc nhập',
             'ncc_email.required' => 'Email bắt buộc nhập',
-            'ncc_email.email' => 'Vui lòng nhập email theo mẫu example@gmail.com'
+            'ncc_email.email' => 'Vui lòng nhập email theo mẫu name@example.com'
         ];
     }
 }

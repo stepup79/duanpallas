@@ -48,8 +48,8 @@ class QuyenController extends Controller
         $quyen = new Quyen();
         $quyen->q_ten = $request->q_ten;
         $quyen->q_dienGiai = $request->q_dienGiai;
-        $quyen->q_taoMoi = Carbon::now();
-        $quyen->q_capNhat = Carbon::now();
+        $quyen->q_taoMoi = Carbon::now('Asia/Ho_Chi_Minh');
+        $quyen->q_capNhat = Carbon::now('Asia/Ho_Chi_Minh');
         $quyen->q_trangThai = $request->q_trangThai;
         $quyen->save();
 
@@ -97,7 +97,7 @@ class QuyenController extends Controller
 
         $quyen->q_ten = $request->q_ten;
         $quyen->q_dienGiai = $request->q_dienGiai;
-        $quyen->q_capNhat = Carbon::now();
+        $quyen->q_capNhat = Carbon::now('Asia/Ho_Chi_Minh');
         $quyen->q_trangThai = $request->q_trangThai;
         $quyen->save();
 

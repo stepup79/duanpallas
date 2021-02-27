@@ -48,7 +48,7 @@ class KhachhangTableSeeder extends Seeder
             }
         }
 
-        $today = new DateTime('2021-01-01 08:00:00');
+        $today = new DateTime('Asia/Ho_Chi_Minh');
         for ($i=1; $i <= $nCustomers; $i++) {
             $xs   = VnBase::RandomNumber(0, 1000);
             if ($xs > 100) {
@@ -93,7 +93,6 @@ class KhachhangTableSeeder extends Seeder
             $address  = $uPI->Address();
 
             array_push($list, [
-                'kh_ma'        => 'KH'.$i,
                 'kh_taiKhoan'  => $username,
                 'kh_matKhau'   => $password,
                 'kh_hoTen'     => $name,
@@ -109,12 +108,11 @@ class KhachhangTableSeeder extends Seeder
         }
         // Admin
         array_push($list, [
-            'kh_ma'        => 'AD'.($nCustomers+1),
             'kh_taiKhoan'  => 'hdthai',
             'kh_matKhau'   => bcrypt('123456'),
             'kh_hoTen'     => 'Hồ Duy Thái',
             'kh_gioiTinh'  => $gender == VnBase::VnMale,
-            'kh_email'     => 'admin@pallas.vn',
+            'kh_email'     => 'admin@pallasflower.vn',
             'kh_ngaySinh'  => '1995-06-09',
             'kh_diaChi'    => '130 Xô Viết Nghệ Tỉnh, Quận Ninh Kiều, TP Cần Thơ',
             'kh_dienThoai' => '0939860197',

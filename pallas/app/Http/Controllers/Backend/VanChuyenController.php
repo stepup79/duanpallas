@@ -49,8 +49,8 @@ class VanChuyenController extends Controller
         $vanchuyen->vc_ten = $request->vc_ten;
         $vanchuyen->vc_chiPhi = $request->vc_chiPhi;
         $vanchuyen->vc_dienGiai = $request->vc_dienGiai;
-        $vanchuyen->vc_taoMoi = Carbon::now();
-        $vanchuyen->vc_capNhat = Carbon::now();
+        $vanchuyen->vc_taoMoi = Carbon::now('Asia/Ho_Chi_Minh');
+        $vanchuyen->vc_capNhat = Carbon::now('Asia/Ho_Chi_Minh');
         $vanchuyen->vc_trangThai = $request->vc_trangThai;
         $vanchuyen->save();
 
@@ -99,7 +99,7 @@ class VanChuyenController extends Controller
         $vanchuyen->vc_ten = $request->vc_ten;
         $vanchuyen->vc_chiPhi = $request->vc_chiPhi;
         $vanchuyen->vc_dienGiai = $request->vc_dienGiai;
-        $vanchuyen->vc_capNhat = Carbon::now();
+        $vanchuyen->vc_capNhat = Carbon::now('Asia/Ho_Chi_Minh');
         $vanchuyen->vc_trangThai = $request->vc_trangThai;
         $vanchuyen->save();
 

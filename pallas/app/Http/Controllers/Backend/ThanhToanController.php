@@ -48,8 +48,8 @@ class ThanhToanController extends Controller
         $thanhtoan = new ThanhToan();
         $thanhtoan->tt_ten = $request->tt_ten;
         $thanhtoan->tt_dienGiai = $request->tt_dienGiai;
-        $thanhtoan->tt_taoMoi = Carbon::now();
-        $thanhtoan->tt_capNhat = Carbon::now();
+        $thanhtoan->tt_taoMoi = Carbon::now('Asia/Ho_Chi_Minh');
+        $thanhtoan->tt_capNhat = Carbon::now('Asia/Ho_Chi_Minh');
         $thanhtoan->tt_trangThai = $request->tt_trangThai;
         $thanhtoan->save();
 
@@ -97,7 +97,7 @@ class ThanhToanController extends Controller
 
         $thanhtoan->tt_ten = $request->tt_ten;
         $thanhtoan->tt_dienGiai = $request->tt_dienGiai;
-        $thanhtoan->tt_capNhat = Carbon::now();
+        $thanhtoan->tt_capNhat = Carbon::now('Asia/Ho_Chi_Minh');
         $thanhtoan->tt_trangThai = $request->tt_trangThai;
         $thanhtoan->save();
 

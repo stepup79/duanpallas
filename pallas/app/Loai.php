@@ -10,7 +10,7 @@ class Loai extends Model
     const     UPDATED_AT    = 'l_capNhat';
 
     protected $table        = 'home_loai';
-    protected $fillable     = ['l_ten', 'l_taoMoi', 'l_capNhat', 'l_trangThai'];
+    protected $fillable     = ['l_ten', 'l_taoMoi', 'l_capNhat', 'l_trangThai', 'cd_id'];
     protected $guarded      = ['l_id'];
 
     protected $primaryKey   = 'l_id';
@@ -20,5 +20,9 @@ class Loai extends Model
 
     public function sanphamLoai () {
         return $this->hasMany('App\SanPham', 'l_id', 'l_id');
+    }
+
+    public function chudeLoai () {
+        return $this->belongsTo('App\ChuDe', 'cd_id', 'cd_id');
     }
 }

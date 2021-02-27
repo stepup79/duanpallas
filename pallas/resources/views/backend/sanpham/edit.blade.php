@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Chức năng CRUD
+Danh mục Sản phẩm
 @endsection
 
 @section('custom-css')
@@ -170,30 +170,4 @@ $(function() {
 <script src="{{ asset('vendor/input-mask/jquery.inputmask.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('vendor/input-mask/bindings/inputmask.binding.js') }}" type="text/javascript"></script>
 
-<script>
-$(document).ready(function() {
-    // Gắn mặt nạ nhập liệu cho các ô nhập liệu Giá
-    $('#sp_gia').inputmask({
-      alias: 'currency',
-      positionCaretOnClick: "radixFocus",
-      radixPoint: ".",
-      _radixDance: true,
-      numericInput: true,
-      groupSeparator: ",",
-      suffix: ' vnđ',
-      min: 0,         // 0 ngàn
-      max: 100000000, // 1 trăm triệu
-      autoUnmask: true,
-      removeMaskOnSubmit: true,
-      unmaskAsNumber: true,
-      inputtype: 'text',
-      placeholder: "0",
-      definitions: {
-        "0": {
-          validator: "[0-9\uFF11-\uFF19]"
-        }
-      }
-    });
-});
-</script>
 @endsection

@@ -26,15 +26,14 @@ class NhanvienTableSeeder extends Seeder
         $ages      = [30, 25, 22, 20, 18, 18];
         $genders   = [VnBase::VnFemale, VnBase::VnMale, VnBase::VnMale, VnBase::VnFemale, VnBase::VnFemale, VnBase::VnFemale];
 
-        $today = new DateTime('2021-01-01 08:00:00');
+        $today = new DateTime('Asia/Ho_Chi_Minh');
         
         array_push($list, [
-            'nv_ma'        => 'unk00',
             'nv_taiKhoan'  => "unknown",
             'nv_matKhau'   => bcrypt('123456'),
             'nv_hoTen'     => "Chưa phân công",
             'nv_gioiTinh'  => true,
-            'nv_email'     => "unknown@sunshine.com",
+            'nv_email'     => "unknown@pallasflower.vn",
             'nv_ngaySinh'  => $today->format('Y-m-d H:i:s'),
             'nv_diaChi'    => "unknown",
             'nv_dienThoai' => "01234567890",
@@ -51,13 +50,12 @@ class NhanvienTableSeeder extends Seeder
                 $birthYear= $uPI->BirthYearValue($age);
                 $birthdate= $uPI->Birthdate($birthYear);
                 $username = $uPI->Username($name, "", "", "", VnBase::VnLowerCase, VnBase::VnTrimShorthand, VnBase::VnTrue);
-                $email    = "$username@pallas.vn";
+                $email    = "$username@pallasflower.vn";
                 $password = bcrypt($username."@".$birthYear);
                 $phone    = $uPI->Mobile("", VnBase::VnFalse);
                 $address  = $uPI->Address();
 
                 array_push($list, [
-                    'nv_ma'        => 'NV'.$count,
                     'nv_taiKhoan'  => $username,
                     'nv_matKhau'   => $password,
                     'nv_hoTen'     => $name,
@@ -75,12 +73,11 @@ class NhanvienTableSeeder extends Seeder
 
         // Admin
         array_push($list, [
-            'nv_ma'        => 'AD100',
             'nv_taiKhoan'  => "admin",
             'nv_matKhau'   => bcrypt('123456'),
             'nv_hoTen'     => "Quản trị hệ thống",
             'nv_gioiTinh'  => true,
-            'nv_email'     => "admin@pallas.vn",
+            'nv_email'     => "admin@pallasflower.vn",
             'nv_ngaySinh'  => $today->format('Y-m-d H:i:s'),
             'nv_diaChi'    => "130 Xô Viết Nghệ Tỉnh, Quận Ninh Kiều, TP Cần Thơ",
             'nv_dienThoai' => "0939860197",

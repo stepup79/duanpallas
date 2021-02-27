@@ -59,8 +59,8 @@ class SanPhamController extends Controller
         $sanpham->sp_gia = $request->sp_gia;
         $sanpham->sp_thongTin = $request->sp_thongTin;
         $sanpham->sp_danhGia = $request->sp_danhGia;
-        $sanpham->sp_taoMoi = Carbon::now();
-        $sanpham->sp_capNhat = Carbon::now();
+        $sanpham->sp_taoMoi = Carbon::now('Asia/Ho_Chi_Minh');
+        $sanpham->sp_capNhat = Carbon::now('Asia/Ho_Chi_Minh');
         $sanpham->sp_trangThai = $request->sp_trangThai;
         $sanpham->l_id = $request->l_id;
         $sanpham->ncc_id = $request->ncc_id;
@@ -120,14 +120,10 @@ class SanPhamController extends Controller
      */
     public function edit($id)
     {
-        // Sử dụng Eloquent Model để truy vấn dữ liệu 
         $sanpham = SanPham::where("sp_id", $id)->first(); 
         $dataLoai = Loai::all(); 
         $dataNhacungcap = NhaCungCap::all();
-        
-        // Đường dẫn đến view được quy định như sau: <FolderName>.<ViewName> 
-        // Mặc định đường dẫn gốc của method view() là thư mục `resources/views` 
-        // Hiển thị view `backend.sanpham.edit` 
+
         return view('backend.sanpham.edit')
             ->with('sp', $sanpham)
             ->with('dsLoai', $dataLoai)
@@ -150,7 +146,7 @@ class SanPhamController extends Controller
         $sanpham->sp_gia = $request->sp_gia;
         $sanpham->sp_thongTin = $request->sp_thongTin;
         $sanpham->sp_danhGia = $request->sp_danhGia;
-        $sanpham->sp_capNhat = Carbon::now();
+        $sanpham->sp_capNhat = Carbon::now('Asia/Ho_Chi_Minh');
         $sanpham->sp_trangThai = $request->sp_trangThai;
         $sanpham->l_id = $request->l_id;
         $sanpham->ncc_id = $request->ncc_id;

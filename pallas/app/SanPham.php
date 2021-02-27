@@ -29,6 +29,9 @@ class SanPham extends Model
     public function spGopy () {
         return $this->hasMany('App\GopY', 'sp_id', 'sp_id');
     }
+    public function cdSanpham () {
+        return $this->hasMany('App\ChuDeSanPham', 'sp_id', 'sp_id');
+    }
 
     public function hinhanhlienquan () {
         return $this->hasMany('App\HinhAnh', 'sp_id', 'sp_id');

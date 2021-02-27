@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin'; //Sau khi đăng nhập thành công, sẽ tự động trỏ về trang /admin/
+    protected $redirectTo = '/dashboard'; //Sau khi đăng nhập thành công, sẽ tự động trở về trang dashboard
 
     /**
      * Create a new controller instance.

@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Chức năng CRUD
+Danh mục Nhà cung cấp
 @endsection
 
 @section('content')
@@ -27,7 +27,7 @@ Chức năng CRUD
 <a class="btn btn-outline-danger" href="{{ route('admin.nhacungcap.pdf') }}">In PDF</a>
 <!-- Table danh mục Loại -->
 <table class="table table-striped">
-    <thead>
+    <thead class="thead-dark">
         <tr>
             <th>ID</th>
             <th>Tên nhà cung cấp</th>

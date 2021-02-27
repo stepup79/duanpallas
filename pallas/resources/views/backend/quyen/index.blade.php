@@ -1,14 +1,11 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Chức năng CRUD
+Danh mục Quyền
 @endsection
 
 @section('content')
-<!-- Đây là div hiển thị Kết quả (thành công, thất bại) sau khi thực hiện các chức năng Thêm, Sửa, Xóa.
-- Div này chỉ hiển thị khi trong Session có các key `alert-*` từ Controller trả về. 
-- Sử dụng các class của Bootstrap "danger", "warning", "success", "info" để hiển thị màu cho đúng với trạng thái kết quả.
--->
+
 <div class="flash-message">
     @foreach (['danger', 'warning', 'success', 'info'] as $msg)
       @if(Session::has('alert-' . $msg))
@@ -27,7 +24,7 @@ Chức năng CRUD
 <a class="btn btn-outline-danger" href="{{ route('admin.quyen.pdf') }}">In PDF</a>
 <!-- Table danh mục Loại -->
 <table class="table table-striped">
-    <thead>
+    <thead class="thead-dark">
         <tr>
             <th>ID</th>
             <th>Tên quyền</th>

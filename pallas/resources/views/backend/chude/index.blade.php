@@ -1,14 +1,11 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Chức năng CRUD
+Danh mục Chủ đề sản phẩm
 @endsection
 
 @section('content')
-<!-- Đây là div hiển thị Kết quả (thành công, thất bại) sau khi thực hiện các chức năng Thêm, Sửa, Xóa.
-- Div này chỉ hiển thị khi trong Session có các key `alert-*` từ Controller trả về. 
-- Sử dụng các class của Bootstrap "danger", "warning", "success", "info" để hiển thị màu cho đúng với trạng thái kết quả.
--->
+
 <div class="flash-message">
     @foreach (['danger', 'warning', 'success', 'info'] as $msg)
       @if(Session::has('alert-' . $msg))
@@ -27,7 +24,7 @@ Chức năng CRUD
 <a class="btn btn-outline-danger" href="{{ route('admin.chude.pdf') }}">In PDF</a>
 <!-- Table danh mục Loại -->
 <table class="table table-striped">
-    <thead>
+    <thead class="thead-dark">
         <tr>
             <th>ID</th>
             <th>Chủ đề</th>
@@ -45,7 +42,7 @@ Chức năng CRUD
             <td>{{ $chude->cd_capNhat }}</td>
             <td>
                 <a href="{{ route('admin.chude.edit', ['id' => $chude->cd_id]) }}" class="btn btn-warning">Sửa</a>
-                <form method="POST" action="{{ route('admin.chude.destroy', ['id' => $chude->cd_id]) }}">
+                <form name="frmDelete" id="frmDelete" method="POST" action="{{ route('admin.chude.destroy', ['id' => $chude->cd_id]) }}">
                     <input type="hidden" name="_method" value="DELETE"/>
                     {{ csrf_field() }}
                     <button type="submit" class="btn btn-danger">Xóa</button>
@@ -56,4 +53,8 @@ Chức năng CRUD
     </tbody>
 </table>
 {{ $dataChude->links() }}
+@endsection
+
+@section('custom-scripts')
+
 @endsection

@@ -57,7 +57,69 @@ Route::get('admin/sanpham/excel', 'Backend\SanPhamController@excel') ->name('adm
 Route::get('admin/sanpham/pdf', 'Backend\SanPhamController@pdf') ->name('admin.sanpham.pdf');
 Route::resource('/admin/sanpham', 'Backend\SanPhamController', ['as' => 'admin']);
 
+// Chức năng CRUD table Khachhang
+Route::get('admin/khachhang/print', 'Backend\KhachHangController@print') ->name('admin.khachhang.print');
+Route::get('admin/khachhang/excel', 'Backend\KhachHangController@excel') ->name('admin.khachhang.excel');
+Route::get('admin/khachhang/pdf', 'Backend\KhachHangController@pdf') ->name('admin.khachhang.pdf');
+Route::resource('/admin/khachhang', 'Backend\KhachHangController', ['as' => 'admin']);
+Route::get('dang-ky', 'Backend\KhachHangController@create') ->name('admin.khachhang.create');
+
+// Chức năng CRUD table Nhanvien
+Route::get('admin/nhanvien/print', 'Backend\NhanVienController@print') ->name('admin.nhanvien.print');
+Route::get('admin/nhanvien/excel', 'Backend\NhanVienController@excel') ->name('admin.nhanvien.excel');
+Route::get('admin/nhanvien/pdf', 'Backend\NhanVienController@pdf') ->name('admin.nhanvien.pdf');
+Route::resource('/admin/nhanvien', 'Backend\NhanVienController', ['as' => 'admin']);
+
+// Chức năng CRUD table Donhang
+Route::get('admin/donhang/print', 'Backend\DonHangController@print') ->name('admin.donhang.print');
+Route::get('admin/donhang/excel', 'Backend\DonHangController@excel') ->name('admin.donhang.excel');
+Route::get('admin/donhang/pdf', 'Backend\DonHangController@pdf') ->name('admin.donhang.pdf');
+Route::resource('/admin/donhang', 'Backend\DonHangController', ['as' => 'admin']);
+
 // Route chức năng đăng nhập
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Backend dashboard
+Route::get('/dashboard', 'Backend\BackendController@dashboard')->name('backend.dashboard');
+
+// Frontend index
+Route::get('/', 'Frontend\FrontendController@index')->name('frontend.home');
+
+// Frontend about
+Route::get('/gioi-thieu', 'Frontend\FrontendController@about')->name('frontend.about');
+
+// Frontend policy
+Route::get('/chinh-sach', 'Frontend\FrontendController@policy')->name('frontend.policy');
+
+// Frontend tutorial
+Route::get('/huong-dan-dat-hoa-va-thanh-toan', 'Frontend\FrontendController@tutorial')->name('frontend.tutorial');
+
+// Frontend contact
+Route::get('/lien-he', 'Frontend\FrontendController@contact')->name('frontend.contact');
+Route::post('/lien-he/gui-loi-nhan', 'Frontend\FrontendController@sendMailContactForm')->name('frontend.contact.sendMailContactForm');
+
+// Frontend product
+Route::get('/san-pham', 'Frontend\FrontendController@product')->name('frontend.product');
+Route::get('/san-pham/{id}', 'Frontend\FrontendController@productDetail')->name('frontend.productDetail');
+
+// Frontend cart
+Route::get('/gio-hang', 'Frontend\FrontendController@cart')->name('frontend.cart');
+Route::post('/dat-hang', 'Frontend\FrontendController@order')->name('frontend.order');
+Route::get('/dat-hang/hoan-tat', 'Frontend\FrontendController@orderFinish')->name('frontend.orderFinish');
+
+// Tạo route Báo cáo Đơn hàng
+Route::get('/admin/baocao/donhang', 'Backend\BaoCaoController@donhang')->name('backend.baocao.donhang');
+Route::get('/admin/baocao/donhang/data', 'Backend\BaoCaoController@donhangData')->name('backend.baocao.donhang.data');
+
+// Route chuyển đổi ngôn ngữ
+Route::get('setLocale/{locale}', function ($locale) {
+    if (in_array($locale, Config::get('app.locales'))) {
+      Session::put('locale', $locale);
+    }
+    return redirect()->back();
+})->name('app.setLocale');
+
+// Route thống kê
+Route::get('/thong-ke', 'Frontend\FrontendController@thongke')->name('frontend.pages.thongke');

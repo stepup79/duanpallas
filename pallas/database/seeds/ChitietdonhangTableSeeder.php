@@ -19,11 +19,10 @@ class ChitietdonhangTableSeeder extends Seeder
         $uPI = new VnPersonalInfo();
         $faker = Faker\Factory::create();
 
-        for ($i=1; $i <= 20; $i++) {
-            $today = new DateTime();
+        for ($i=1; $i <= 15; $i++) {
             array_push($list, [
-                'dh_id'                   => $faker->numberBetween(1, 15),
-                'sp_id'                   => $faker->numberBetween(1, 30),
+                'dh_id'                   => $i,
+                'sp_id'                   => $i+1,
                 'ctdh_soLuong'            => $faker->numberBetween(1, 20),
                 'ctdh_donGia'             => round($faker->randomFloat(99999999, 80000, 6500000), -3),
             ]);

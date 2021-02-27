@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Loai;
+use App\ChuDe;
 use Carbon\Carbon;
 use Storage;
 use Session;
@@ -34,7 +35,9 @@ class LoaiController extends Controller
      */
     public function create()
     {
-        return view('backend.loai.create');
+        $dataChude = ChuDe::all();
+        return view('backend.loai.create')
+            ->with('dataChude', $dataChude);
     }
 
     /**
@@ -47,8 +50,9 @@ class LoaiController extends Controller
     {
         $loai = new Loai();
         $loai->l_ten = $request->l_ten;
-        $loai->l_taoMoi = Carbon::now();
-        $loai->l_capNhat = Carbon::now();
+        $loai->cd_id = $request->cd_id;
+        $loai->l_taoMoi = Carbon::now('Asia/Ho_Chi_Minh');
+        $loai->l_capNhat = Carbon::now('Asia/Ho_Chi_Minh');
         $loai->l_trangThai = $request->l_trangThai;
         $loai->save();
 
@@ -78,9 +82,11 @@ class LoaiController extends Controller
     public function edit($id)
     {
         $loai = Loai::find($id);
+        $dataChude = ChuDe::all();
 
         return view('backend.loai.edit')
-            ->with('loai', $loai);
+            ->with('loai', $loai)
+            ->with('dsChude', $dataChude);
     }
 
     /**
@@ -95,7 +101,8 @@ class LoaiController extends Controller
         $loai = Loai::find($id);
 
         $loai->l_ten = $request->l_ten;
-        $loai->l_capNhat = Carbon::now();
+        $loai->cd_id = $request->cd_id;
+        $loai->l_capNhat = Carbon::now('Asia/Ho_Chi_Minh');
         $loai->l_trangThai = $request->l_trangThai;
         $loai->save();
 
@@ -130,9 +137,11 @@ class LoaiController extends Controller
     public function print()
     {
         $dataLoai = Loai::all();
+        $dataChude = ChuDe::all();
         
         return view('backend.loai.print')
-            ->with('danhsachloai', $dataLoai);
+            ->with('danhsachloai', $dataLoai)
+            ->with('danhsachchude', $dataChude);
     }
 
     /**
@@ -149,8 +158,10 @@ class LoaiController extends Controller
     public function pdf()
     {
         $dataLoai = Loai::all();
+        $dataChude = ChuDe::all();
         $data = [
-            'danhsachloai' => $dataLoai
+            'danhsachloai' => $dataLoai,
+            'danhsachchude' => $dataChude
         ];
         
         $pdf = PDF::loadView('backend.loai.pdf', $data);

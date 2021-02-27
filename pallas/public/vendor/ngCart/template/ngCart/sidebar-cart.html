@@ -8,18 +8,17 @@
             <div class="header-cart-item-img">
                 <img src="<% item.getData().sp_hinh_url %>" alt="IMG">
             </div>
-
+    
             <div class="header-cart-item-txt p-t-8">
                 <a href="/san-pham/<% item.getId() %>" class="header-cart-item-name m-b-18 hov-cl1 trans-04 title">
                     <% item.getName() %>
                 </a>
-
+                
                 <span class="header-cart-item-info">
                     <% item.getQuantity() | number %> x <% item.getPrice() | currency %>
                 </span>
 
-                <span ng-click="ngCart.removeItemById(item.getId())"
-                    class="glyphicon glyphicon-remove remove">Xóa</span>
+                <span ng-click="ngCart.removeItemById(item.getId())" class="glyphicon glyphicon-remove remove">Xóa</span>
             </div>
         </li>
     </ul>
@@ -50,16 +49,13 @@
     .ngCart.cart span[ng-click] {
         cursor: pointer;
     }
-
     .ngCart.cart .glyphicon.disabled {
-        color: #aaa;
+        color:#aaa;
     }
-
     .ngCart.cart .title {
         color: blue;
         font-weight: bold;
     }
-
     .ngCart.cart .remove {
         color: red;
     }

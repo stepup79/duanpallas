@@ -16,7 +16,6 @@ class CreateHomeKhachhangTable extends Migration
         Schema::create('home_khachhang', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('kh_id')->comment('ID khách hàng');
-            $table->string('kh_ma', 20)->comment('Mã khách hàng # Mã khách hàng');
             $table->string('kh_taiKhoan', 50)->comment('Tài khoản # Tài khoản');
             $table->string('kh_matKhau', 150)->comment('Mật khẩu # Mật khẩu');
             $table->string('kh_hoTen', 50)->comment('Họ tên # Họ tên');
@@ -29,7 +28,6 @@ class CreateHomeKhachhangTable extends Migration
             $table->timestamp('kh_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('Thời điểm cập nhật # Thời điểm cập nhật khách hàng gần nhất');
             $table->unsignedTinyInteger('kh_trangThai')->default('3')->comment('Trạng thái # Trạng thái khách hàng: 1-khóa, 2-khả dụng, 3-chưa kích hoạt');
 
-            $table->unique(['kh_ma']);
             $table->unique(['kh_taiKhoan']);
         });
         DB::statement("ALTER TABLE `home_khachhang` comment 'Khách hàng # Khách hàng'");

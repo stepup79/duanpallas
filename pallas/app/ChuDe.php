@@ -17,4 +17,11 @@ class ChuDe extends Model
 
     protected $dates        = ['cd_taoMoi', 'cd_capNhat'];
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function loaiChude () {
+        return $this->hasMany('App\ChuDe', 'cd_id', 'cd_id');
+    }
+    public function spChude () {
+        return $this->hasMany('App\ChuDeSanPham', 'cd_id', 'cd_id');
+    }
 }

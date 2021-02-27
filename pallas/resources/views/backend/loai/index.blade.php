@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Chức năng CRUD
+Danh mục Loại sản phẩm
 @endsection
 
 @section('content')
@@ -27,10 +27,11 @@ Chức năng CRUD
 <a class="btn btn-outline-danger" href="{{ route('admin.loai.pdf') }}">In PDF</a>
 <!-- Table danh mục Loại -->
 <table class="table table-striped">
-    <thead>
+    <thead class="thead-dark">
         <tr>
             <th>ID</th>
             <th>Tên loại</th>
+            <th>Tên chủ đề</th>
             <th>Ngày tạo mới</th>
             <th>Ngày cập nhật</th>
             <th>Chức năng</th>
@@ -41,6 +42,7 @@ Chức năng CRUD
         <tr>
             <td>{{ $loai->l_id }}</td>
             <td>{{ $loai->l_ten }}</td>
+            <td>{{ $loai->chudeLoai->cd_ten }}</td>
             <td>{{ $loai->l_taoMoi }}</td>
             <td>{{ $loai->l_capNhat }}</td>
             <td>

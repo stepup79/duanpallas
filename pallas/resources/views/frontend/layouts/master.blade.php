@@ -1,730 +1,182 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="pallasApp">
 <head>
-    <title>@yield('title')</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>@yield('title')</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="shortcut icon" type="image/png" href="{{ asset('storage/img/favicon.ico') }}"/>
 <!--===============================================================================================-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/cozastore/vendor/bootstrap/css/bootstrap.min.css') }}">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('themes/vegefoods/css/open-iconic-bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('themes/vegefoods/css/animate.css') }}">
-<!--===============================================================================================-->   
-    <link rel="stylesheet" type="text/css" href="{{ asset('themes/vegefoods/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('themes/vegefoods/css/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('themes/vegefoods/css/magnific-popup.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/cozastore/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('themes/vegefoods/css/aos.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/cozastore/fonts/iconic/css/material-design-iconic-font.min.css') }}">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('themes/vegefoods/css/ionicons.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/cozastore/fonts/linearicons-v1.0.0/icon-font.min.css') }}">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('themes/vegefoods/css/bootstrap-datepicker.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('themes/vegefoods/css/jquery.timepicker.css') }}">
-<!--===============================================================================================-->   
-    <link rel="stylesheet" type="text/css" href="{{ asset('themes/vegefoods/css/flaticon.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('themes/vegefoods/css/icomoon.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('themes/vegefoods/css/style.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/cozastore/vendor/animate/animate.css') }}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/cozastore/vendor/css-hamburgers/hamburgers.min.css') }}">
 <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/cozastore/vendor/animsition/css/animsition.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/cozastore/vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/cozastore/vendor/daterangepicker/daterangepicker.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/cozastore/vendor/slick/slick.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/cozastore/vendor/MagnificPopup/magnific-popup.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/cozastore/vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/cozastore/css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/cozastore/css/main.css') }}">
+<!--===============================================================================================-->
+
+<!-- Các custom style của frontend -->
+<!-- <link rel="stylesheet" href="{{ asset('themes/cozastore/css/custom-styles.css') }}"> -->
+
+<!-- Các custom style dành riêng cho từng view -->
+@yield('custom-css')
 </head>
-<body class="goto-here">
-		<div class="py-1 bg-primary">
-    	<div class="container">
-    		<div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
-	    		<div class="col-lg-12 d-block">
-		    		<div class="row d-flex">
-		    			<div class="col-md pr-4 d-flex topper align-items-center">
-					    	<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
-						    <span class="text">+ 1235 2355 98</span>
-					    </div>
-					    <div class="col-md pr-4 d-flex topper align-items-center">
-					    	<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
-						    <span class="text">youremail@email.com</span>
-					    </div>
-					    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
-						    <span class="text">3-5 Business days delivery &amp; Free Returns</span>
-					    </div>
-				    </div>
-			    </div>
-		    </div>
-		  </div>
-    </div>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="{{ asset('themes/vegefoods/index.html') }}">Vegefoods</a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
+<body class="animsition">
+	
+	<!-- Header -->
+	@include('frontend.layouts.partials.header')
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="{{ asset('themes/vegefoods/index.html') }}" class="nav-link">Home</a></li>
-	          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="{{ asset('themes/vegefoods/#') }}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	<a class="dropdown-item" href="{{ asset('themes/vegefoods/shop.html') }}">Shop</a>
-              	<a class="dropdown-item" href="{{ asset('themes/vegefoods/wishlist.html') }}">Wishlist</a>
-                <a class="dropdown-item" href="{{ asset('themes/vegefoods/product-single.html') }}">Single Product</a>
-                <a class="dropdown-item" href="{{ asset('themes/vegefoods/cart.html') }}">Cart</a>
-                <a class="dropdown-item" href="{{ asset('themes/vegefoods/checkout.html') }}">Checkout</a>
-              </div>
-            </li>
-	          <li class="nav-item"><a href="{{ asset('themes/vegefoods/about.html') }}" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="{{ asset('themes/vegefoods/blog.html') }}" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="{{ asset('themes/vegefoods/contact.html') }}" class="nav-link">Contact</a></li>
-	          <li class="nav-item cta cta-colored"><a href="{{ asset('themes/vegefoods/cart.html') }}" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+	<!-- Cart -->
+	@include('frontend.layouts.partials.cart')
 
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-    <!-- END nav -->
+	<!-- Main content -->
+	@yield('main-content')
 
-    <!-- Slider -->
-    <section id="home-section" class="hero">
-		  <div class="home-slider owl-carousel">
-	      <div class="slider-item" style="background-image: url({{ asset('themes/vegefoods/images/bg_1.jpg') }});">
-	      	<div class="overlay"></div>
-	        <div class="container">
-	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-
-	            <div class="col-md-12 ftco-animate text-center">
-	              <h1 class="mb-2">We serve Fresh Vegestables &amp; Fruits</h1>
-	              <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-	              <p><a href="#" class="btn btn-primary">View Details</a></p>
-	            </div>
-
-	          </div>
-	        </div>
-	      </div>
-
-	      <div class="slider-item" style="background-image: url({{ asset('themes/vegefoods/images/bg_2.jpg') }});">
-	      	<div class="overlay"></div>
-	        <div class="container">
-	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-
-	            <div class="col-sm-12 ftco-animate text-center">
-	              <h1 class="mb-2">100% Fresh &amp; Organic Foods</h1>
-	              <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-	              <p><a href="#" class="btn btn-primary">View Details</a></p>
-	            </div>
-
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-    </section>
-
-    <!-- Marketing -->
-    <section class="ftco-section">
-        <div class="container">
-            <div class="row no-gutters ftco-services">
-        <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services mb-md-0 mb-4">
-            <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
-                <span class="flaticon-shipped"></span>
-            </div>
-            <div class="media-body">
-            <h3 class="heading">Free Shipping</h3>
-            <span>On order over $100</span>
-            </div>
-        </div>      
-        </div>
-        <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services mb-md-0 mb-4">
-            <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
-                <span class="flaticon-diet"></span>
-            </div>
-            <div class="media-body">
-            <h3 class="heading">Always Fresh</h3>
-            <span>Product well package</span>
-            </div>
-        </div>    
-        </div>
-        <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services mb-md-0 mb-4">
-            <div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
-                <span class="flaticon-award"></span>
-            </div>
-            <div class="media-body">
-            <h3 class="heading">Superior Quality</h3>
-            <span>Quality Products</span>
-            </div>
-        </div>      
-        </div>
-        <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
-        <div class="media block-6 services mb-md-0 mb-4">
-            <div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
-                <span class="flaticon-customer-service"></span>
-            </div>
-            <div class="media-body">
-            <h3 class="heading">Support</h3>
-            <span>24/7 Support</span>
-            </div>
-        </div>      
-        </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Topic -->
-    <section class="ftco-section ftco-category ftco-no-pt">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-6 order-md-last align-items-stretch d-flex">
-                            <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url(images/category.jpg);">
-                                <div class="text text-center">
-                                    <h2>Vegetables</h2>
-                                    <p>Protect the health of every home</p>
-                                    <p><a href="#" class="btn btn-primary">Shop now</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(images/category-1.jpg);">
-                                <div class="text px-3 py-1">
-                                    <h2 class="mb-0"><a href="#">Fruits</a></h2>
-                                </div>
-                            </div>
-                            <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(images/category-2.jpg);">
-                                <div class="text px-3 py-1">
-                                    <h2 class="mb-0"><a href="#">Vegetables</a></h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(images/category-3.jpg);">
-                        <div class="text px-3 py-1">
-                            <h2 class="mb-0"><a href="#">Juices</a></h2>
-                        </div>		
-                    </div>
-                    <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(images/category-4.jpg);">
-                        <div class="text px-3 py-1">
-                            <h2 class="mb-0"><a href="#">Dried</a></h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Products -->
-    <section class="ftco-section">
-    	<div class="container">
-				<div class="row justify-content-center mb-3 pb-3">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<span class="subheading">Featured Products</span>
-            <h2 class="mb-4">Our Products</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-          </div>
-        </div>   		
-    	</div>
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Colorlib Template">
-    						<span class="status">30%</span>
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Bell Pepper</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
-		    					</div>
-	    					</div>
-	    					<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-2.jpg" alt="Colorlib Template">
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Strawberry</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
-		    					</div>
-	    					</div>
-    						<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-3.jpg" alt="Colorlib Template">
-	    					<div class="overlay"></div>
-	    				</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Green Beans</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
-		    					</div>
-	    					</div>
-    						<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt="Colorlib Template">
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Purple Cabbage</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
-		    					</div>
-	    					</div>
-    						<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
+	<!-- Footer -->
+	@include('frontend.layouts.partials.footer')
 
 
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-5.jpg" alt="Colorlib Template">
-    						<span class="status">30%</span>
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Tomatoe</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
-		    					</div>
-	    					</div>
-	    					<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-6.jpg" alt="Colorlib Template">
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Brocolli</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
-		    					</div>
-	    					</div>
-    						<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-7.jpg" alt="Colorlib Template">
-	    					<div class="overlay"></div>
-	    				</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Carrots</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
-		    					</div>
-	    					</div>
-    						<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-8.jpg" alt="Colorlib Template">
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Fruit Juice</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
-		    					</div>
-	    					</div>
-    						<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
 
-    <!-- Best price -->
-    <section class="ftco-section img" style="background-image: url(images/bg_3.jpg);">
-    	<div class="container">
-				<div class="row justify-content-end">
-          <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
-          	<span class="subheading">Best Price For You</span>
-            <h2 class="mb-4">Deal of the day</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-            <h3><a href="#">Spinach</a></h3>
-            <span class="price">$10 <a href="#">now $5 only</a></span>
-            <div id="timer" class="d-flex mt-5">
-						  <div class="time" id="days"></div>
-						  <div class="time pl-3" id="hours"></div>
-						  <div class="time pl-3" id="minutes"></div>
-						  <div class="time pl-3" id="seconds"></div>
-						</div>
-          </div>
-        </div>   		
-    	</div>
-    </section>
-
-    <!-- Customer says -->
-    <section class="ftco-section testimony-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-          	<span class="subheading">Testimony</span>
-            <h2 class="mb-4">Our satisfied customer says</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-          </div>
-        </div>
-        <div class="row ftco-animate">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel">
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text text-center">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Garreth Smith</p>
-                    <span class="position">Marketing Manager</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text text-center">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Garreth Smith</p>
-                    <span class="position">Interface Designer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text text-center">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Garreth Smith</p>
-                    <span class="position">UI Designer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text text-center">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Garreth Smith</p>
-                    <span class="position">Web Developer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text text-center">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Garreth Smith</p>
-                    <span class="position">System Analyst</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr>
-    <!-- Partner -->
-    <section class="ftco-section ftco-partner">
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="images/partner-1.png" class="img-fluid" alt="Colorlib Template"></a>
-    			</div>
-    			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="images/partner-2.png" class="img-fluid" alt="Colorlib Template"></a>
-    			</div>
-    			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="images/partner-3.png" class="img-fluid" alt="Colorlib Template"></a>
-    			</div>
-    			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="images/partner-4.png" class="img-fluid" alt="Colorlib Template"></a>
-    			</div>
-    			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="images/partner-5.png" class="img-fluid" alt="Colorlib Template"></a>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
-	<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
-        <div class="container py-4">
-            <div class="row d-flex justify-content-center py-5">
-            <div class="col-md-6">
-                <h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
-                <span>Get e-mail updates about our latest shops and special offers</span>
-            </div>
-            <div class="col-md-6 d-flex align-items-center">
-                <form action="#" class="subscribe-form">
-                <div class="form-group d-flex">
-                    <input type="text" class="form-control" placeholder="Enter email address">
-                    <input type="submit" value="Subscribe" class="submit px-3">
-                </div>
-                </form>
-            </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="ftco-footer ftco-section">
-      <div class="container">
-      	<div class="row">
-      		<div class="mouse">
-						<a href="#" class="mouse-icon">
-							<div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
-						</a>
-					</div>
-      	</div>
-        <div class="row mb-5">
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Vegefoods</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">Menu</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Shop</a></li>
-                <li><a href="#" class="py-2 d-block">About</a></li>
-                <li><a href="#" class="py-2 d-block">Journal</a></li>
-                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-4">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Help</h2>
-              <div class="d-flex">
-	              <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
-	                <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
-	                <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
-	                <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
-	                <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
-	              </ul>
-	              <ul class="list-unstyled">
-	                <li><a href="#" class="py-2 d-block">FAQs</a></li>
-	                <li><a href="#" class="py-2 d-block">Contact</a></li>
-	              </ul>
-	            </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-	              </ul>
-	            </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
-
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>. Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
-						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    
-  
-
-    <!-- loader -->
-    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
+<!--===============================================================================================-->	
+	<script src="{{ asset('themes/cozastore/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
 <!--===============================================================================================-->
-    <script src="{{ asset('themes/vegefoods/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('themes/vegefoods/js/jquery-migrate-3.0.1.min.js') }}"></script>
+	<script src="{{ asset('themes/cozastore/vendor/animsition/js/animsition.min.js') }}"></script>
 <!--===============================================================================================-->
-    <script src="{{ asset('themes/vegefoods/js/popper.min.js') }}"></script>
-    <script src="{{ asset('themes/vegefoods/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('themes/cozastore/vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ asset('themes/cozastore/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 <!--===============================================================================================-->
-    <script src="{{ asset('themes/vegefoods/js/jquery.easing.1.3.js') }}"></script>
-    <script src="{{ asset('themes/vegefoods/js/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('themes/vegefoods/js/jquery.stellar.min.js') }}"></script>
+	<script src="{{ asset('themes/cozastore/vendor/select2/select2.min.js') }}"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+	</script>
 <!--===============================================================================================-->
-    <script src="{{ asset('themes/vegefoods/js/owl.carousel.min.js') }}"></script>
+	<script src="{{ asset('themes/cozastore/vendor/daterangepicker/moment.min.js') }}"></script>
+	<script src="{{ asset('themes/cozastore/vendor/daterangepicker/daterangepicker.js') }}"></script>
 <!--===============================================================================================-->
-    <script src="{{ asset('themes/vegefoods/js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('themes/vegefoods/js/aos.js') }}"></script>
+	<script src="{{ asset('themes/cozastore/vendor/slick/slick.min.js') }}"></script>
+	<script src="{{ asset('themes/cozastore/js/slick-custom.js') }}"></script>
 <!--===============================================================================================-->
-    <script src="{{ asset('themes/vegefoods/js/jquery.animateNumber.min.js') }}"></script>
-    <script src="{{ asset('themes/vegefoods/js/bootstrap-datepicker.js') }}"></script>
+	<script src="{{ asset('themes/cozastore/vendor/parallax100/parallax100.js') }}"></script>
+	<script>
+        $('.parallax100').parallax100();
+	</script>
 <!--===============================================================================================-->
-    <script src="{{ asset('themes/vegefoods/js/scrollax.min.js') }}"></script>
+	<script src="{{ asset('themes/cozastore/vendor/MagnificPopup/jquery.magnific-popup.min.js') }}"></script>
+	<script>
+		$('.gallery-lb').each(function() { // the containers for all your galleries
+			$(this).magnificPopup({
+		        delegate: 'a', // the selector for gallery item
+		        type: 'image',
+		        gallery: {
+		        	enabled:true
+		        },
+		        mainClass: 'mfp-fade'
+		    });
+		});
+	</script>
 <!--===============================================================================================-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="{{ asset('themes/vegefoods/js/google-map.js') }}"></script>
+	<script src="{{ asset('themes/cozastore/vendor/isotope/isotope.pkgd.min.js') }}"></script>
 <!--===============================================================================================-->
-    <script src="{{ asset('themes/vegefoods/js/main.js') }}"></script>
-    
+	<script src="{{ asset('themes/cozastore/vendor/sweetalert/sweetalert.min.js') }}"></script>
+	<script>
+		$('.js-addwish-b2').on('click', function(e){
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(function(){
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-b2');
+				$(this).off('click');
+			});
+		});
+
+		$('.js-addwish-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-detail');
+				$(this).off('click');
+			});
+		});
+
+		/*---------------------------------------------*/
+
+		$('.js-addcart-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+	
+	</script>
+<!--===============================================================================================-->
+	<script src="{{ asset('themes/cozastore/vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{{ asset('themes/cozastore/js/main.js') }}"></script>
+
     <!-- SCRIPT thư viện AngularJS -->
-    <script src="{{ asset('vendor/angularjs/angular.min.js') }}') }}"></script>
+    <script src="{{ asset('vendor/angularjs/angular.min.js') }}"></script>
     <!-- SCRIPT thư viện ngCart -->
-    <script src="{{ asset('vendor/ngCart/dist/ngCart.js') }}') }}"></script>
+    <script src="{{ asset('vendor/ngCart/dist/ngCart.js') }}"></script>
+	<!-- Sweetalert 2 -->
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
+		// Khởi tạo ứng dụng AngularJS, sử dụng plugin ngCart
+		// Do Laravel và AngularJS đều sử dụng dấu `Double bracket` để render dữ liệu
+		// => để tránh bị xung đột cú pháp, ta sẽ đổi cú pháp render dữ liệu của AngularJS thành <% %>
 		var app = angular.module('pallasApp', ['ngCart'],
 			function($interpolateProvider) {
 				$interpolateProvider.startSymbol('<%');
@@ -732,6 +184,30 @@
 			});
     </script>
 
+	<script>
+	// Khai báo controller 
+    app.controller('timKiemSanPhamController', function($scope, $http) {
+        $scope.ketquatimduoc = [];
+        $scope.timKiem = function() {
+            var sendData = {
+                    keyword_search_by_tensanpham: $('#keyword_search_by_tensanpham').val(),
+            };
+
+            var url = "{{ route('api.sanpham.timkiem') }}";
+            url += '?keyword_search_by_tensanpham=' + sendData.keyword_search_by_tensanpham;
+
+            $http({
+                    url: url,
+                    method: "GET", // Nếu là POST thì sử dụng url cũ
+                    data: JSON.stringify(sendData)
+            }).then(function successCallback(response) {
+                $scope.ketquatimduoc = response.data.result;
+            }, function errorCallback(response) {
+				alert('Có lỗi khi tìm kiếm!')
+            });
+        };
+    });
+	</script>
     <!-- Các custom script dành riêng cho từng view -->
     @yield('custom-scripts')
 </body>

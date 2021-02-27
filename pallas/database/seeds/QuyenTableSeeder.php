@@ -11,7 +11,7 @@ class QuyenTableSeeder extends Seeder
      */
     public function run()
     {
-        $today = new DateTime('2021-01-01 08:00:00');
+        $today = new DateTime('Asia/Ho_Chi_Minh');
         $list = [
             [
                 'q_ten'      => "Giám đốc",

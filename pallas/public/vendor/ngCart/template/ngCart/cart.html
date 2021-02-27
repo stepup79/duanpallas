@@ -32,7 +32,7 @@
                                 <td class="column-2"><% item.getName() %></td>
                                 <td class="column-3"><% item.getPrice() | currency %></td>
                                 <td class="column-4"><% item.getQuantity() | number %></td>
-                                <td class="column-5"><% item.getTotal() | currency %> </td>
+                                <td class="column-5"><% item.getTotal() | currency %></td>
                                 <td><span ng-click="ngCart.removeItemById(item.getId())"
                                         class="glyphicon glyphicon-remove remove">Xóa</span></td>
                             </tr>
@@ -87,10 +87,6 @@
                             </span>
                         </div>
                     </div>
-
-                    <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                        Thanh toán
-                    </button>
                 </div>
             </div>
         </div>

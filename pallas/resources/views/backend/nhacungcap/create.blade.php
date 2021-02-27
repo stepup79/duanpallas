@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Chức năng CRUD
+Danh mục Nhà cung cấp
 @endsection
 
 @section('content')
@@ -30,7 +30,7 @@ Chức năng CRUD
     </div>
     <div class="form-group">
         <label for="ncc_trangThai">Trạng thái</label>
-        <select class="form-group" name="ncc_trangThai" id="ncc_trangThai">
+        <select class="form-control" name="ncc_trangThai" id="ncc_trangThai">
             <option value="1" {{ old('ncc_trangThai') == 1 ?'selected' :'' }}>Khóa</option>
             <option value="2" {{ old('ncc_trangThai') == 2 ?'selected' :'' }}>Khả dụng</option>
         </select>

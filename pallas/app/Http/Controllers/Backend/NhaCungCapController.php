@@ -51,8 +51,8 @@ class NhaCungCapController extends Controller
         $nhacungcap->ncc_diaChi = $request->ncc_diaChi;
         $nhacungcap->ncc_dienThoai = $request->ncc_dienThoai;
         $nhacungcap->ncc_email = $request->ncc_email;
-        $nhacungcap->ncc_taoMoi = Carbon::now();
-        $nhacungcap->ncc_capNhat = Carbon::now();
+        $nhacungcap->ncc_taoMoi = Carbon::now('Asia/Ho_Chi_Minh');
+        $nhacungcap->ncc_capNhat = Carbon::now('Asia/Ho_Chi_Minh');
         $nhacungcap->ncc_trangThai = $request->ncc_trangThai;
         $nhacungcap->save();
 
@@ -103,7 +103,7 @@ class NhaCungCapController extends Controller
         $nhacungcap->ncc_diaChi = $request->ncc_diaChi;
         $nhacungcap->ncc_dienThoai = $request->ncc_dienThoai;
         $nhacungcap->ncc_email = $request->ncc_email;
-        $nhacungcap->ncc_capNhat = Carbon::now();
+        $nhacungcap->ncc_capNhat = Carbon::now('Asia/Ho_Chi_Minh');
         $nhacungcap->ncc_trangThai = $request->ncc_trangThai;
         $nhacungcap->save();
 

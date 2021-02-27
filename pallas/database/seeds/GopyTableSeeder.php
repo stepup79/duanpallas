@@ -19,7 +19,7 @@ class GopyTableSeeder extends Seeder
         $uPI = new VnPersonalInfo();
 
         for ($i=1; $i <= 30; $i++) {
-            $today = new DateTime();
+            $today = new DateTime('Asia/Ho_Chi_Minh');
             array_push($list, [
                 'gy_thoiGian'             => $today->format('Y-m-d H:i:s'),
                 'gy_noiDung'              => "gy_noiDung $i",

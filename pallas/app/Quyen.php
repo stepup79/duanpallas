@@ -18,7 +18,7 @@ class Quyen extends Model
     protected $dates        = ['q_taoMoi', 'q_capNhat'];
     protected $dateFormat   = 'Y-m-d H:i:s';
 
-    public function quyenNhanvien () {
+    public function nhanvienQuyen () {
         return $this->hasMany('App\NhanVien', 'q_id', 'q_id');
     }
 }

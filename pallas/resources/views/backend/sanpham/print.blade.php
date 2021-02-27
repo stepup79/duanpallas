@@ -22,9 +22,9 @@ Biểu mẫu Phiếu in danh mục sản phẩm
         <table border="0" align="center">
             <tr>
                 <td class="companyInfo" align="center">
-                    Công ty Hoa tươi Pallas<br />
-                    http://pallas.vn/<br />
-                    (0292)3.888.999 # 01.222.888.999<br />
+                    Hoa tươi Pallas<br />
+                    http://homepallas.vn/<br />
+                    (0292)3.665.012 # 0939.860.197<br />
                     <img class="img-logo" src="{{ asset('storage/img/logo.jpg') }}" />
                 </td>
             </tr>

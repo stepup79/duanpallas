@@ -37,7 +37,7 @@ Chức năng CRUD
 
 <!-- Tạo table hiển thị danh sách các sản phẩm -->
 <table class="table table-striped">
-    <thead>
+    <thead class="thead-dark">
         <tr>
             <th>ID</th>
             <th>Mã sản phẩm</th>
@@ -45,7 +45,6 @@ Chức năng CRUD
             <th>Giá sản phẩm</th>
             <th>Hình</th>
             <th>Thông tin</th>
-            <th>Trạng thái</th>
             <th>Loại sản phẩm</th>
             <th>Nhà cung cấp</th>
             <th>Chức năng</th>
@@ -63,7 +62,6 @@ Chức năng CRUD
                 <img src="{{ asset('storage/photos/' . $sp->sp_hinh) }}" class="img-detail"/>
             </td>
             <td>{{ $sp->sp_thongTin }}</td>
-            <td>{{ $sp->sp_trangThai }}</td>
             <td>{{ $sp->loaiSanpham->l_ten }}</td>
             <td>{{ $sp->spNhacungcap->ncc_ten }}</td>
             <td>

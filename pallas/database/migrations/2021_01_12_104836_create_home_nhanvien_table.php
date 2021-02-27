@@ -16,7 +16,6 @@ class CreateHomeNhanvienTable extends Migration
         Schema::create('home_nhanvien', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('nv_id')->comment('ID Nhân viên');
-            $table->string('nv_ma', 20)->comment('Mã nhân viên');
             $table->string('nv_taiKhoan', 50)->comment('Tài khoản # Tài khoản');
             $table->string('nv_matKhau', 150)->comment('Mật khẩu # Mật khẩu');
             $table->string('nv_hoTen', 50)->comment('Họ tên # Họ tên');
@@ -30,7 +29,6 @@ class CreateHomeNhanvienTable extends Migration
             $table->unsignedTinyInteger('nv_trangThai')->default('2')->comment('Trạng thái # Trạng thái nhân viên: 1-khóa, 2-khả dụng');
             $table->unsignedTinyInteger('q_id')->comment('Quyền # Tên quyền');
             
-            $table->unique(['nv_ma']);
             $table->unique(['nv_taiKhoan']);
             $table->foreign('q_id')->references('q_id')->on('home_quyen')
                 ->onDelete('CASCADE')->onUpdate('CASCADE');

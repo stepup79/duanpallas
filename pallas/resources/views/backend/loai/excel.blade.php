@@ -43,7 +43,8 @@
             </tr>
             <tr style="border: 1px thin #000">
                 <th style="text-align: center">STT</th>
-                <th style="text-align: center">Tên loại</th>
+                <th style="text-align: center">Tên loại sản phẩm</th>
+                <th style="text-align: center">Chủ đề</th>
             </tr>
             @foreach ($danhsachloai as $loai)
             <tr style="border: 1px thin #000">
@@ -51,6 +52,11 @@
                     {{ $loop->index + 1 }}
                 </td>
                 <td align="left" valign="middle" width="20">{{ $loai->l_ten }}</td>
+                @foreach ($danhsachchude as $chude)
+                    @if ($loai->cd_id == $chude->cd_id)
+                    <td align="left" width="20" valign="middle">{{ $chude->cd_ten }}</td>
+                    @endif
+                @endforeach
             </tr>
             @endforeach
         </table>

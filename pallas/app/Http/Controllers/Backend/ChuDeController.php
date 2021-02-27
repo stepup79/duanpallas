@@ -47,8 +47,8 @@ class ChuDeController extends Controller
     {
         $chude = new ChuDe();
         $chude->cd_ten = $request->cd_ten;
-        $chude->cd_taoMoi = Carbon::now();
-        $chude->cd_capNhat = Carbon::now();
+        $chude->cd_taoMoi = Carbon::now('Asia/Ho_Chi_Minh');
+        $chude->cd_capNhat = Carbon::now('Asia/Ho_Chi_Minh');
         $chude->cd_trangThai = $request->cd_trangThai;
         $chude->save();
 
@@ -95,7 +95,7 @@ class ChuDeController extends Controller
         $chude = ChuDe::find($id);
 
         $chude->cd_ten = $request->cd_ten;
-        $chude->cd_capNhat = Carbon::now();
+        $chude->cd_capNhat = Carbon::now('Asia/Ho_Chi_Minh');
         $chude->cd_trangThai = $request->cd_trangThai;
         $chude->save();
 
